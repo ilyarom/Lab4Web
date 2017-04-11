@@ -1,0 +1,23 @@
+{
+    "version": "0.1",
+    "language": "en",
+    "words": [
+        "mkdirp",
+        "tsmerge",
+		"Arial",
+        "maxlength",
+		"avito",
+		"clearfix",
+		"Uppermenu",
+		"textbox",
+		"socialnew",
+		"starsprite",
+		"circle",
+		"square",
+		"triangle",
+		"button"
+    ],
+    "flagWords": [
+        "hte"
+    ]
+}
