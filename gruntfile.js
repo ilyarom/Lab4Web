@@ -68,16 +68,11 @@ module.exports = function(grunt)
         },
 
         cssmin: {
-            options: {
-                mergeIntoShorthands: false,
-                roundingPrecision: -1
-            },
-
             target: {
                 files: {
                     'build/styles.css': [
                         'node_modules/bootstrap/dist/css/bootstrap.min.css',
-                        'project/css/main.css'
+                        'files/css/main.css'
                     ]
                 }
             }
@@ -89,7 +84,7 @@ module.exports = function(grunt)
                 configFile: 'tslint.json',
                 quiet: false
             },
-            target: 'project/ts/*.ts'
+            target: 'files/ts/*.ts'
         },
 
         hashres: {
@@ -110,23 +105,23 @@ module.exports = function(grunt)
         react: {
             single_file_output: {
                 files: {
-                    './build/app.js': 'project/jsx/**/*.jsx'
+                    './build/app.js': 'files/jsx/**/*.jsx'
                 }
             }
         },
 
         ts: {
             default: {
-                src: ['project/ts/**/*.ts'],
-                out: './build/canvas.js',
-                configFile: 'tsconfig.json',
-                options: {
+				options: {
                     module: 'system',
                     target: 'es5',
                     noImplicitAny: true,
                     noEmitOnError: true,
                     sourceMap: false,
                 }
+                src: ['files/ts/**/*.ts'],
+                out: './build/canvas.js',
+                configFile: 'tsconfig.json',
             }
         },
 
@@ -155,7 +150,7 @@ module.exports = function(grunt)
                 stderr: true
             },
             target: {
-                command: 'cspell project/**/*.*'
+                command: 'cspell files/**/*.*'
             }
         },
 
@@ -165,12 +160,12 @@ module.exports = function(grunt)
             },
 
             css: {
-                files: ['project/css/**/*.*'],
+                files: ['files/css/**/*.*'],
                 tasks: ['shell', 'clean:css', 'cssmin', 'hashres:prod']
             },
 
             scripts: {
-                files: ['project/jsx/**/*.*', 'project/ts/**/*.*'],
+                files: ['files/jsx/**/*.*', 'files/ts/**/*.*'],
                 tasks: [
                     'shell', 'clean', 'copy', 'react', 'tslint', 'ts',
                     'systemjs', 'concat', 'cssmin',
