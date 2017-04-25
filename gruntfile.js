@@ -69,7 +69,8 @@ module.exports = function(grunt)
 
         cssmin: {
             options: {
-                mergeIntoShorthands: false
+                mergeIntoShorthands: false,
+                roundingPrecision: -1
             },
 
             target: {
